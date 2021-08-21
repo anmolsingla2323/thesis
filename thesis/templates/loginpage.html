@@ -25,6 +25,7 @@
     </div>
     <div class="container2">
         <form action="login" method="post">
+            {% csrf_token %}
             <h2>Choose Account Type</h2>
             <input type="radio" name="choice" id="admin" value="1" class="in" onchange="if(this.checked){goTo('al')}" />
             <label for="admin">

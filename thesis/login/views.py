@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 
@@ -18,13 +18,14 @@ def login(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
+        examinor = request.POST['choice']
         user = auth.authenticate(username=username, password=password)
         if user is not None:
             auth.login(request, user)
-            el(request)
+            return redirect('el')
         else:
             messages.info(request, 'invalid username or password')
-            return('/', request)
+            return redirect('home')
 
 def logout(request):
     auth.logout(request)
