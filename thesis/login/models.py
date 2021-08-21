@@ -19,4 +19,4 @@ class thesis(models.Model):
     assigned = models.ForeignKey(Examinor, on_delete=models.CASCADE)
     filepass = models.CharField(max_length=100)
     feedack = models.FileField(upload_to = 'feedback')
-    file = models.FileField(upload_to = 'thesis')
+    file = models.FileField(upload_to = 'THESI')
